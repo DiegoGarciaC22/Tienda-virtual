@@ -40,5 +40,12 @@ def productosPorNombre(request):
     return render(request,'index.html',context)    
     
 
-
+def productoDetalle(request, producto_id):
+    """ vista del detalle del producto """    
+    objProducto = get_object_or_404(Producto, pk=producto_id)
+    context = {
+        'producto': objProducto
+    }
+    return render(request, 'producto.html', context)
+    
 
